@@ -12,7 +12,7 @@ export default function SendMoney(){
 
    async function onClick(){
       try{   
-         const response = await axios.post("http://localhost:5000/api/v1/account/transfer", {
+         const response = await axios.post("https://mypay-h662.onrender.com/api/v1/account/transfer", {
                            to: id,
                            amount
                      }, {

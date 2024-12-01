@@ -10,7 +10,7 @@ export default function Dashboard(){
 
    
    const fetchBalance = () => {
-      axios.get("http://localhost:5000/api/v1/account/balance",{
+      axios.get("https://mypay-h662.onrender.com/api/v1/account/balance",{
          headers : {
             'Authorization' : "Bearer " + localStorage.getItem("token")
          }
@@ -24,7 +24,7 @@ export default function Dashboard(){
    }
 
    useEffect(() => {
-      axios.get("http://localhost:5000/api/v1/user/",{
+      axios.get("https://mypay-h662.onrender.com/api/v1/user/",{
          headers : {
             'Authorization' : "Bearer " + localStorage.getItem("token")
          }

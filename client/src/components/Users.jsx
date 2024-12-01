@@ -9,7 +9,7 @@ export default function Users(){
    
    useEffect(() => {
       const token = localStorage.getItem("token");
-      axios.get("http://localhost:5000/api/v1/user/bulk?filter=" + filter,{
+      axios.get("https://mypay-h662.onrender.com/api/v1/user/bulk?filter=" + filter,{
          headers : {
             'Authorization' : `Bearer ${token}`
          }
