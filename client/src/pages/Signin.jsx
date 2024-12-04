@@ -12,7 +12,7 @@ export default function Signin(){
    const [password,setPassword] = useState("");
    const [errors,setErrors] = useState({username:"",password:""});
 
-   function onClick(){
+   async function onClick(){
       const newErrors = {username:"" , password:""};
 
       if(!username){
@@ -26,28 +26,26 @@ export default function Signin(){
          setErrors(newErrors);
          return;
       }
-      
-      axios.post("https://mypay-h662.onrender.com/api/v1/user/signin",{
-         username,
-         password
+   
+      try {
+         const res = await axios.post("https://mypay-h662.onrender.com/api/v1/user/signin",{
+            username,
+            password
       })
-      .then(res => {
          localStorage.setItem("token",res.data.token);
          window.location.href = res.data.redirectUrl;
-      })
-      .catch(err => {
+      }catch(err){
          if(err.response.data.msg){
             console.log(err);
                alert(err.response.data.msg);
          }else {
             alert("something went wrong");
          }
-
-      })
+      }
 
    } 
 
-   return <div className="flex justify-center h-screen bg-slate-300 pt-20">
+   return <div className="flex justify-center min-h-screen bg-slate-300 pt-20">
      <div className="bg-white items-center h-fit px-6 py-5 rounded-lg">
          <Heading label={"Signin"} />
          <SubHeading label={"Enter your information to login to your account."} />

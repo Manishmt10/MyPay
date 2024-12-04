@@ -65,7 +65,7 @@ export default function Signup(){
 
    } 
 
-    return <div className="flex justify-center h-screen bg-slate-300 pt-20" >
+    return <div className="flex justify-center  min-h-screen bg-slate-300 pt-20" >
       <div className="bg-white items-center h-fit px-6 py-5 rounded-lg">
          <Heading label={"Signup"} />
          <SubHeading label={"Enter your information to create an account."} />
