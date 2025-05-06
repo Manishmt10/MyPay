@@ -11,18 +11,20 @@ export default function Signin(){
    const [username,setUsername] = useState("");
    const [password,setPassword] = useState("");
    const [errors,setErrors] = useState({username:"",password:""});
+   const [loading,setLoading] = useState(false);
 
    async function onClick(){
-      const newErrors = {username:"" , password:""};
+      setLoading(true);
+      const newErrors = {name:"" , pass:""};
 
       if(!username){
-         newErrors.username = "Username is required";
+         newErrors.name = "Username is required";
          setErrors(newErrors);
          return;
       }
 
       if(!password){
-         newErrors.password = "Password is required";
+         newErrors.pass = "Password is required";
          setErrors(newErrors);
          return;
       }
@@ -56,7 +58,7 @@ export default function Signin(){
             setPassword(e.target.value);
          }} errors={errors.password} placeholder="123456" label={"Password"} />
          <div className="pt-2">
-            <Button btnName={"Signin"} onClick={onClick}/>
+            <Button btnName={"Signin"} onClick={onClick} loading={loading}/>
          </div>
          <BottomWarning label={"Don't have an account?"} buttonText={"Signup"} to={"/signup"}/>
       </div>
